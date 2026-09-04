@@ -1,0 +1,42 @@
+run_car_node:
+  ros__parameters:
+    camera_matrix: [677.1356,      0.0,        906.8761, 
+                      0.0,       676.2960,     235.4413, 
+                      0.0,         0.0,          1.0     ]  
+    stop_end_threshold: 1050                  # 终点停车像素阈值（溜车像素）
+    max_v: 1.30                               # 最大速度
+    mid_v: 0.85                               # 中等速度
+    min_v: 0.50                               # 最小速度
+    # max_v: 0.85                               # 最大速度
+    # mid_v: 0.65                               # 中等速度
+    # min_v: 0.55                               # 最小速度
+    ctrl_ts: 0.02                             # 50Hz判断当前任务的回调函数
+    Kp: 3.8 
+    Ki: 0.0
+    Kd: 0.01
+    speed_back: -0.8                          #倒车速度
+    random_flag: 1                            #随机绕圈标志位，1为顺时针，0为逆时针
+    Coefficient_output: 1.0                   # PID输出乘的系数，增大后转弯更快，但可能不够平稳
+    quit_point: 99                            # 绕圈退出点，默认值为1，即绕完第一个点就退出
+    lidar_fov: 1.40                           # 前方搜索半角(rad)，~80°
+    lidar_influence: 0.9                      # 影响半径(m)，超过此距离的障碍忽略
+    lidar_range_min: 0.10                     # 小于此距离的点丢弃(去自身/杂点)
+    lidar_safe_clearance: 0.09                # 想额外留的间隙(m)  ←主要调这个
+    car_half_width: 0.10                      # 车半宽(车宽20cm)
+    obstacle_radius: 0.05                     # 锥筒切面半径
+    lidar_min_gap: 0.                         # 可通行空隙的最小角宽(rad)
+    lidar_edge_margin: 0.10                   # 瞄准空隙时离边缘留的角度余量(rad)
+    lidar_invert: 1.0                         # 雷达左右若反了改成 -1.0
+    back_omega: 4.0                           # 倒车打方向：正=右，打死≈4.0；若实测向左打改 -4.0
+    back_max_time: 1.3                        # 倒车最大时间(安全超时)
+    back_stop_yaw: 1.80                       # 倒车停车：yaw 须大于此值
+    back_obst_dist: 0.38                      # 后方锥筒触发距离(雷达到车尾还差0.125m)
+    back_fov: 0.5                             # 后方监视扇区半角(rad)，~34°
+    circle_lookahead: 0.48                    # 正常前视距离(m)：大=平滑、小=贴线紧
+    circle_proj_fwd: 100                      # 投影窗口前界(下标)：要 > 单帧最大前进
+    circle_slow_thresh: 1.0                   # |output| 超过此值就降速
+    circle_cte_slow: 0.40                     # cte 超过此值就降到低速(偏离中线就慢，直到回正)
+    recover_cte_done: 0.25                    # cte 小于此值视为已贴回中线、退出回中模式
+    open_lidar_bearing: 1                     # 雷达避障开关
+    task1_cruise_px: 2.40                     # Task1 前半程：px 小于此值时压低目标
+    task1_cruise_py: 1.5                      # 前半程瞄准的低 py 目标(越小轨迹越贴下方)

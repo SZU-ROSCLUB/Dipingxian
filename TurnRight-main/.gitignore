@@ -1,0 +1,67 @@
+# ROS 2 编译产物
+build/
+install/
+log/
+install_isolated/
+build_isolated/
+devel/
+devel_isolated/
+
+# Python 中间文件
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# C++ 编译产物
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+*.app
+
+# 日志和临时文件
+*.log
+*.txt
+!README.md
+!requirements.txt
+!*.md
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# IDE 和编辑器文件
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Storeconfig/
+dev_ws/
+config/
+
+voice/*.jpg
+!voice/.gitkeep
+
+src/qrcode_copy/
+launch/__pycache__/
